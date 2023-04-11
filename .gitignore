@@ -102,3 +102,7 @@ dist
 
 # TernJS port file
 .tern-port
+
+# Other user folders and files
+_dest/*.js
+pnpm-lock.yaml
