@@ -105,4 +105,5 @@ dist
 
 # Other user folders and files
 _dest/*.js
+_dest/*.js*
 pnpm-lock.yaml
