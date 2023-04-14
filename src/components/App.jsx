@@ -1,21 +1,17 @@
 import { useRoute } from 'react-router5';
-
 import Nav from '../components/Nav.jsx';
-
-import initUsers from '../components/_users.json';
-import ListUsers from './ListUsers.jsx';
-import ListPosts from './ListPosts.jsx';
+import JsonplaceholderPhotos from '../components/JsonplaceholderPhotos.jsx';
 
 function Main() {
-  const {route} = useRoute();
-  console.log('Main',route);
+  const { route } = useRoute();
+  console.log('Main', route);
   switch (route?.name) {
     case 'home':
       return <h1>Home</h1>;
-    case 'users':
-      return <ListUsers users={initUsers}/>;
-    case 'posts':
-      return <ListPosts posts={[]}/>;
+    case 'photos':
+      return <JsonplaceholderPhotos />;
+    case 'about':
+      return <h1>TEST</h1>;
     default:
       return <h1>Not Found {route.name}</h1>;
   }
