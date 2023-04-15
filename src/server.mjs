@@ -3,11 +3,11 @@ import micro, { send } from 'micro';
 import { router } from './router.mjs';
 import { renderToString } from 'react-dom/server';
 
-import Root from './Root.jsx';
+import Root from './SSR_Root.jsx';
 
 function getHtml(){
   return readFileSync('./_dest/index.html', 'utf8')
-    .replace('<div id="react-root"></div>',`<div id="react-root">${renderToString(Root)}</div>`);
+    .replace('<div id="react-root"></div>',`<div id="react-root">${renderToString(Root())}</div>`);
 }
 
 const
@@ -22,8 +22,8 @@ const
         return send(response, 404, `<h1>${error.code}</h1>` + JSON.stringify(error));
       switch (state?.name) {
         case 'home':
-        case 'users':
-        case 'posts':
+        case 'photos':
+        case 'about':
           return send(response, 200, getHtml());
         default:
           return send(response, 200, state);
